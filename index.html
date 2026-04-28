@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mathez Onsite Logistics · Logistique salons & congrès</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0f0f1a;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.5rem;
+      min-height: 100vh;
+      color: #e8e8f0;
+    }
+    .presentation {
+      max-width: 1300px;
+      width: 100%;
+      background: rgba(18, 20, 28, 0.9);
+      backdrop-filter: blur(18px);
+      border-radius: 3.5rem;
+      padding: 2.8rem 2.5rem;
+      box-shadow: 0 25px 55px -15px rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .identity-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(12,13,20,0.7);
+      border-radius: 2.5rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(249,184,74,0.3);
+      backdrop-filter: blur(8px);
+    }
+    .identity-text h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f9d56e, #f8b042);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .identity-text .slogan {
+      color: #a0a5c0;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .badge-oea {
+      display: inline-block;
+      background: #2e3040;
+      padding: 0.4rem 1.2rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      color: #f9d56e;
+      font-size: 0.9rem;
+      border: 1px solid #4a3f2c;
+      margin-bottom: 1rem;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      color: #cfd2e6;
+    }
+    .contact-row span i { color: #f9b84a; margin-right: 0.4rem; }
+    .btn-map {
+      background: rgba(255,200,100,0.08);
+      border: 1px solid rgba(249,184,74,0.4);
+      padding: 0.6rem 1.6rem;
+      border-radius: 2.5rem;
+      color: #f7e3b2;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .btn-map:hover { background: rgba(249,184,74,0.18); }
+    .event-highlight {
+      background: rgba(20,22,30,0.5);
+      border-radius: 2.5rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255,215,120,0.2);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .event-text h3 { font-size: 1.8rem; color: #f7e3b2; }
+    .event-text p { color: #a0a5c0; margin-top: 0.5rem; }
+    .event-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .btn-gold {
+      background: #f9b84a; color: #0a0a0f; padding: 0.7rem 1.5rem;
+      border-radius: 2.5rem; font-weight: 700; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(249,184,74,0.3);
+    }
+    .btn-outline {
+      background: transparent; border: 1px solid rgba(249,184,74,0.5);
+      color: #f7e3b2; padding: 0.7rem 1.5rem; border-radius: 2.5rem;
+      font-weight: 600; text-decoration: none;
+    }
+    .services-list { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+    .service-item {
+      background: rgba(25,27,38,0.7); border-radius: 2rem; padding: 0.8rem 1.5rem;
+      border: 1px solid rgba(255,200,100,0.2); color: #cfd2e6; font-weight: 500;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.8rem; margin: 2.5rem 0; }
+    .card {
+      background: rgba(25,27,38,0.7); backdrop-filter: blur(12px); border-radius: 2rem;
+      padding: 1.8rem 1.5rem; border: 1px solid rgba(255,200,100,0.15);
+      transition: 0.25s; box-shadow: 0 10px 25px -8px rgba(0,0,0,0.5);
+    }
+    .card:hover { transform: translateY(-5px); border-color: rgba(249,184,74,0.45); }
+    .card-icon {
+      font-size: 2.2rem; color: #f9b84a; background: rgba(249,184,74,0.12);
+      width: 3.2rem; height: 3.2rem; display: flex; align-items: center;
+      justify-content: center; border-radius: 1.2rem; margin-bottom: 1rem;
+    }
+    .card h3 { font-size: 1.5rem; color: #f7e3b2; margin-bottom: 0.7rem; }
+    .card p { color: #b9bedd; line-height: 1.5; }
+    .stat-badge {
+      background: #2e3040; padding: 0.3rem 1rem; border-radius: 2rem;
+      font-size: 0.8rem; font-weight: 600; color: #f9d56e;
+      display: inline-block; margin-top: 0.8rem; border: 1px solid #4a3f2c;
+    }
+    /* GANTT */
+    #ganttSection { margin-top: 3rem; }
+    #ganttSection .planning-container { background: transparent; backdrop-filter: none; border-radius: 0; padding: 0; box-shadow: none; border: none; }
+    #ganttSection .header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
+    #ganttSection .title-block h1 { font-size: 2rem; background: linear-gradient(135deg, #f9d56e, #f8b042); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    #ganttSection .subtitle { color: #a0a5c0; }
+    #ganttSection .btn-back { background: rgba(255,200,100,0.08); border: 1px solid rgba(249,184,74,0.4); padding: 0.6rem 1.6rem; border-radius: 2.5rem; color: #f7e3b2; font-weight: 600; text-decoration: none; }
+    #ganttSection .btn-back:hover { background: rgba(249,184,74,0.18); }
+    #ganttSection .legend { display: flex; gap: 1.8rem; flex-wrap: wrap; margin-bottom: 1.5rem; background: rgba(20,22,30,0.5); padding: 0.7rem 1.5rem; border-radius: 2rem; border: 1px solid rgba(255,215,120,0.2); }
+    #ganttSection .legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
+    #ganttSection .legend-color { width: 1.2rem; height: 1.2rem; border-radius: 0.4rem; }
+    
+    /* GANTT - NOUVEAU SYSTÈME */
+    #ganttSection .gantt-wrapper { background: rgba(12,13,20,0.7); border-radius: 1.8rem; overflow: hidden; border: 1px solid rgba(249,184,74,0.15); display: flex; }
+    #ganttSection .gantt-labels { width: 260px; flex-shrink: 0; background: rgba(12,13,20,0.7); border-right: 1px solid rgba(249,184,74,0.2); display: flex; flex-direction: column; }
+    #ganttSection .gantt-timeline { flex: 1; position: relative; overflow-x: auto; }
+    #ganttSection .hour-headers { display: flex; background: rgba(12,13,20,0.7); border-bottom: 1px solid rgba(249,184,74,0.3); position: sticky; top: 0; z-index: 8; }
+    #ganttSection .hour-header { flex-shrink: 0; width: 80px; text-align: center; padding: 0.8rem 0.2rem; color: #f9d56e; font-weight: 600; border-right: 1px solid rgba(249,184,74,0.2); font-size: 0.8rem; }
+    #ganttSection .hour-header:last-child { border-right: none; }
+    #ganttSection .task-label { padding: 0.65rem 0.8rem; color: #cfd2e6; width: 260px; flex-shrink: 0; background: rgba(255,255,255,0.03); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; border-right: 1px solid rgba(249,184,74,0.2); border-bottom: 1px solid rgba(255,255,255,0.05); min-height: 65px; }
+    #ganttSection .task-timeline { flex: 1; position: relative; min-height: 65px; background: rgba(20,22,28,0.4); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; }
+    #ganttSection .group-header { font-weight: 700; color: #f7e3b2; background: rgba(249,184,74,0.12); padding: 0.8rem; border-bottom: 1px solid rgba(249,184,74,0.5); font-size: 0.9rem; display: flex; align-items: center; width: 260px; min-height: 45px; }
+    #ganttSection .group-header-spacer { flex: 1; border-bottom: 1px solid rgba(249,184,74,0.5); }
+    
+    #ganttSection .bar { position: absolute; top: 8px; bottom: 8px; border-radius: 1.2rem; display: flex; align-items: center; justify-content: flex-start; padding: 0 0.8rem; font-weight: 600; font-size: 0.75rem; color: #0a0a0f; background: rgba(249,184,74,0.85); box-shadow: 0 4px 12px rgba(0,0,0,0.4); z-index: 2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border: 1px solid rgba(255,255,200,0.3); transition: 0.2s; }
+    #ganttSection .bar.internal { background: #5a6b8c; color: white; border-color: #9aaed0; }
+    #ganttSection .bar.standiste { background: #b3802e; }
+    #ganttSection .bar.traiteur { background: #b45f3a; }
+    #ganttSection .bar.sono { background: #a65f8c; }
+    #ganttSection .bar.mobilier { background: #4d7c6b; }
+    #ganttSection .bar:hover { filter: brightness(1.15); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.5); z-index: 5; }
+    
+    /* KPI */
+    .kpi-dashboard { margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; background: rgba(20,22,30,0.5); border-radius: 2.5rem; padding: 2rem; backdrop-filter: blur(8px); border: 1px solid rgba(249,184,74,0.25); }
+    .kpi-urgences, .kpi-priorites { background: rgba(12,13,20,0.6); border-radius: 2rem; padding: 1.8rem; border: 1px solid rgba(255,200,100,0.15); }
+    .kpi-urgences h3, .kpi-priorites h3 { font-size: 1.3rem; color: #f7e3b2; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
+    .kpi-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+    .kpi-list li { background: rgba(255,255,255,0.03); padding: 0.8rem 1rem; border-radius: 1rem; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid; font-size: 0.9rem; }
+    .kpi-list li.urgence { border-left-color: #f9b84a; }
+    .kpi-list li.priority { border-left-color: #5a6b8c; }
+    .badge { background: #2e3040; padding: 0.3rem 0.8rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600; color: #f9d56e; }
+    .badge.critique { background: #b45f3a; color: white; }
+    .kpi-indicators { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+    .indicator { background: rgba(255,255,255,0.05); border-radius: 1rem; padding: 1rem; flex: 1; text-align: center; }
+    .indicator .value { font-size: 1.8rem; font-weight: 700; color: #f9d56e; }
+    .indicator .label { font-size: 0.8rem; color: #a0a5c0; margin-top: 0.3rem; }
+    /* CONTACT */
+    .contact-footer {
+      margin-top: 3rem;
+      background: rgba(20,22,30,0.5);
+      border-radius: 2.5rem;
+      padding: 1.8rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      border: 1px solid rgba(255,215,120,0.2);
+      backdrop-filter: blur(8px);
+    }
+    .contact-footer h3 { color: #f7e3b2; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem; }
+    .contact-link {
+      color: #f9d56e; text-decoration: none; font-weight: 600;
+      display: flex; align-items: center; gap: 0.5rem;
+      background: rgba(25,27,38,0.7); padding: 0.7rem 1.5rem;
+      border-radius: 2rem; border: 1px solid rgba(249,184,74,0.3);
+      transition: 0.2s;
+    }
+    .contact-link:hover { background: rgba(249,184,74,0.15); }
+    @media (max-width: 800px) {
+      .kpi-dashboard { grid-template-columns: 1fr; }
+      .identity-header { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    <!-- IDENTITÉ -->
+    <div class="identity-header">
+      <div class="identity-text">
+        <h2>MATHEZ ONSITE LOGISTICS</h2>
+        <div class="slogan">Spécialiste de la logistique des salons et congrès de la Côte d'Azur</div>
+        <div class="badge-oea"><i class="fas fa-certificate"></i> Transitaire agréé OEA-Full</div>
+        <div class="contact-row">
+          <span><i class="fas fa-map-marker-alt"></i> Cannes · Nice · Monaco · Antibes</span>
+          <span><i class="fas fa-phone"></i> +33.4 97 25 78 25</span>
+          <span><i class="fas fa-envelope"></i> web@mathezfreight.com</span>
+        </div>
+      </div>
+      <div class="identity-map">
+        <a href="#" class="btn-map"><i class="fas fa-directions"></i> Itinéraire & accès</a>
+      </div>
+    </div>
+
+    <!-- ÉVÉNEMENT -->
+    <div class="event-highlight">
+      <div class="event-text">
+        <h3><i class="fas fa-star" style="color:#f9b84a;"></i> TFWA WE&C 2026</h3>
+        <p>Demandez votre devis pour votre logistique sur le salon.</p>
+      </div>
+      <div class="event-actions">
+        <a href="#" class="btn-gold"><i class="fas fa-file-invoice"></i> Cotation Express</a>
+        <a href="#" class="btn-outline"><i class="fas fa-download"></i> Instructions</a>
+        <a href="#" class="btn-outline"><i class="fas fa-calendar-alt"></i> RDV livraison</a>
+        <a href="#" class="btn-outline"><i class="fas fa-map"></i> Plans d'accès</a>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="services-list">
+      <div class="service-item"><i class="fas fa-truck"></i> Transport</div>
+      <div class="service-item"><i class="fas fa-passport"></i> Douane</div>
+      <div class="service-item"><i class="fas fa-dolly"></i> Livraison sur site</div>
+      <div class="service-item"><i class="fas fa-headset"></i> Assistance</div>
+      <div class="service-item"><i class="fas fa-box"></i> Emballages</div>
+      <div class="service-item"><i class="fas fa-warehouse"></i> Stockage long terme</div>
+    </div>
+
+    <!-- METIER -->
+    <div class="grid" style="margin-top: 2rem;">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-user-tie"></i></div>
+        <h3>Chef de projet dédié</h3>
+        <p>Un interlocuteur unique coordonne transport, douane, livraison et manutention pour votre stand.</p>
+        <span class="stat-badge"><i class="fas fa-check-circle"></i> Suivi personnalisé</span>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-globe-europe"></i></div>
+        <h3>Couverture Côte d'Azur</h3>
+        <p>Cannes, Nice, Monaco, Antibes : nos équipes connaissent chaque palais et parc d'exposition.</p>
+        <span class="stat-badge"><i class="fas fa-map-pin"></i> Présence locale</span>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-clock"></i></div>
+        <h3>Respect des délais</h3>
+        <p>Anticipation des créneaux de montage, gestion des urgences de dernière minute.</p>
+        <span class="stat-badge"><i class="fas fa-hourglass-half"></i> Ponctualité garantie</span>
+      </div>
+    </div>
+
+    <!-- PLANNING GANTT -->
+    <div id="ganttSection">
+      <div class="planning-container">
+        <div class="header">
+          <div class="title-block"><h1>Planning Gantt · Montage</h1><div class="subtitle"><i class="fas fa-calendar-day" style="color:#f9b84a;"></i> Salon TechForge · 24 octobre 2026 · 6h – 22h</div></div>
+          <a href="#" class="btn-back"><i class="fas fa-arrow-left"></i> Tableau de bord</a>
+        </div>
+        <div class="legend">
+          <div class="legend-item"><span class="legend-color" style="background:#5a6b8c;"></span> Équipe interne</div>
+          <div class="legend-item"><span class="legend-color" style="background:#b3802e;"></span> Standiste</div>
+          <div class="legend-item"><span class="legend-color" style="background:#b45f3a;"></span> Traiteur</div>
+          <div class="legend-item"><span class="legend-color" style="background:#a65f8c;"></span> Sonorisation</div>
+          <div class="legend-item"><span class="legend-color" style="background:#4d7c6b;"></span> Mobilier</div>
+          <div class="legend-item"><span style="color:#f9b84a;">⚡</span> Heure actuelle</div>
+        </div>
+
+        <div class="gantt-wrapper" id="ganttWrapper">
+          <!-- LABELS (colonne gauche) -->
+          <div class="gantt-labels" id="ganttLabels"></div>
+          
+          <!-- TIMELINE (colonne droite) -->
+          <div class="gantt-timeline" id="ganttTimeline">
+            <!-- Headers heure -->
+            <div class="hour-headers" id="hourHeaders"></div>
+            
+            <!-- Rows de tâches -->
+            <div id="ganttGrid"></div>
+          </div>
+        </div>
+
+        <div class="footer-note" style="margin-top:1.5rem; text-align:right; color:#9da2c0;"><i class="fas fa-sync-alt" style="color:#f9b84a;"></i> Synchronisé avec Airtable · Mis à jour en temps réel</div>
+      </div>
+    </div>
+
+    <!-- KPI -->
+    <div class="kpi-dashboard">
+      <div class="kpi-urgences">
+        <h3><i class="fas fa-exclamation-triangle"></i> Urgences du jour</h3>
+        <ul class="kpi-list">
+          <li class="urgence">Confirmation créneau quai Hall 1 <span class="badge critique">En retard</span></li>
+          <li class="urgence">Dédouanement échantillons UK <span class="badge critique">Documents manquants</span></li>
+          <li class="urgence">Contrôle poids palette stand A22 <span class="badge">En attente</span></li>
+        </ul>
+        <div class="kpi-indicators">
+          <div class="indicator"><div class="value">3</div><div class="label">Alertes</div></div>
+          <div class="indicator"><div class="value">1</div><div class="label">Blocage douane</div></div>
+        </div>
+      </div>
+      <div class="kpi-priorites">
+        <h3><i class="fas fa-list-check"></i> Priorités du jour</h3>
+        <ul class="kpi-list">
+          <li class="priority">Réception 12 palettes entrepôt <span class="badge">6h-8h</span></li>
+          <li class="priority">Livraison Palais Niveau 1 <span class="badge">9h-12h</span></li>
+          <li class="priority">Reprise emballages vides <span class="badge">14h-16h</span></li>
+          <li class="priority">Briefing sécurité exposants <span class="badge">7h30</span></li>
+        </ul>
+        <div class="kpi-indicators">
+          <div class="indicator"><div class="value">100%</div><div class="label">Livraisons à l'heure</div></div>
+          <div class="indicator"><div class="value">5/5</div><div class="label">Équipes mobilisées</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-footer">
+      <h3><i class="fas fa-address-card"></i> Pour me contacter</h3>
+      <a href="https://www.linkedin.com/in/marcdufouria/" target="_blank" class="contact-link">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="tel:+33743545482" class="contact-link">
+        <i class="fas fa-phone-alt"></i> 07 43 54 54 82
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const START_HOUR = 6;
+    const END_HOUR = 22;
+    const CELL_WIDTH = 80; // px per hour
+    
+    const tasks = [
+      // Équipe Interne
+      { type: 'group', label: 'Équipe Interne', icon: 'fas fa-users' },
+      { type: 'task', label: 'Briefing sécurité', icon: 'fas fa-clipboard-check', startHour: 7, duration: 0.5, className: 'internal' },
+      { type: 'task', label: 'Réception fournisseurs', icon: 'fas fa-truck-loading', startHour: 8, duration: 1, className: 'internal' },
+      { type: 'task', label: 'Coordination montage', icon: 'fas fa-sitemap', startHour: 9, duration: 3, className: 'internal' },
+      { type: 'task', label: 'Vérification électricité', icon: 'fas fa-bolt', startHour: 14, duration: 1, className: 'internal' },
+      { type: 'task', label: 'Test vidéo & audio', icon: 'fas fa-tv', startHour: 16, duration: 1, className: 'internal' },
+      
+      // Prestataires
+      { type: 'group', label: 'Prestataires Externes', icon: 'fas fa-handshake' },
+      { type: 'task', label: 'Standiste – Montage structure', icon: 'fas fa-hard-hat', startHour: 7, duration: 5, className: 'standiste' },
+      { type: 'task', label: 'Standiste – Finitions', icon: 'fas fa-paint-roller', startHour: 13, duration: 2, className: 'standiste' },
+      { type: 'task', label: 'Traiteur – Installation cuisine', icon: 'fas fa-utensils', startHour: 8, duration: 2, className: 'traiteur' },
+      { type: 'task', label: 'Traiteur – Déco & dressage', icon: 'fas fa-seedling', startHour: 10, duration: 2, className: 'traiteur' },
+      { type: 'task', label: 'Sonorisation – Câblage', icon: 'fas fa-volume-up', startHour: 14, duration: 2, className: 'sono' },
+      { type: 'task', label: 'Mobilier – Livraison & placement', icon: 'fas fa-couch', startHour: 10, duration: 3, className: 'mobilier' }
+    ];
+
+    function initGantt() {
+      const hourHeaders = document.getElementById('hourHeaders');
+      const ganttGrid = document.getElementById('ganttGrid');
+      const ganttLabels = document.getElementById('ganttLabels');
+      
+      // Construire les en-têtes d'heures
+      for (let i = START_HOUR; i < END_HOUR; i++) {
+        const header = document.createElement('div');
+        header.className = 'hour-header';
+        header.style.width = CELL_WIDTH + 'px';
+        header.textContent = i + 'h';
+        hourHeaders.appendChild(header);
+      }
+
+      // Construire les lignes de tâches
+      tasks.forEach(task => {
+        if (task.type === 'group') {
+          // Entête de groupe
+          const labelDiv = document.createElement('div');
+          labelDiv.className = 'group-header';
+          labelDiv.innerHTML = `<i class="${task.icon}"></i> ${task.label}`;
+          ganttLabels.appendChild(labelDiv);
+          
+          const spacer = document.createElement('div');
+          spacer.className = 'group-header-spacer';
+          ganttGrid.appendChild(spacer);
+          
+        } else if (task.type === 'task') {
+          // Ligne de tâche
+          const rowLabel = document.createElement('div');
+          rowLabel.className = 'task-label';
+          rowLabel.innerHTML = `<i class="${task.icon}"></i> ${task.label}`;
+          ganttLabels.appendChild(rowLabel);
+          
+          const rowTimeline = document.createElement('div');
+          rowTimeline.className = 'task-timeline';
+          
+          // Créer la barre
+          const bar = document.createElement('div');
+          bar.className = `bar ${task.className}`;
+          
+          // Calcul position en pixels absolus
+          const offsetFromStart = task.startHour - START_HOUR;
+          const leftPx = offsetFromStart * CELL_WIDTH;
+          const widthPx = task.duration * CELL_WIDTH;
+          
+          bar.style.left = leftPx + 'px';
+          bar.style.width = widthPx + 'px';
+          
+          // Label de l'heure
+          const startMin = Math.round((task.startHour % 1) * 60);
+          const endHour = Math.floor(task.startHour + task.duration);
+          const endMin = Math.round(((task.startHour + task.duration) % 1) * 60);
+          const startStr = String(Math.floor(task.startHour)).padStart(2, '0') + ':' + String(startMin).padStart(2, '0');
+          const endStr = String(endHour).padStart(2, '0') + ':' + String(endMin).padStart(2, '0');
+          
+          bar.textContent = startStr + '-' + endStr;
+          rowTimeline.appendChild(bar);
+          ganttGrid.appendChild(rowTimeline);
+        }
+      });
+    }
+
+    initGantt();
+  </script>
+</body>
+</html>
